@@ -7954,7 +7954,7 @@ ga("send", "pageview");
         this._core.trigger("play", null, "video"), this._playing && this.stop();
         var p, o, n = f(a.target || a.srcElement), m = n.closest("." + this._core.settings.itemClass),
             l = this._videos[m.attr("data-video")], k = l.width || "100%", j = l.height || this._core.$stage.height();
-        "youtube" === l.type ? p = '<iframe width="' + k + '" height="' + j + '" src="http://www.youtube.com/embed/' + l.id + "?autoplay=1&v=" + l.id + '" frameborder="0" allowfullscreen></iframe>' : "vimeo" === l.type && (p = '<iframe src="http://player.vimeo.com/video/' + l.id + '?autoplay=1" width="' + k + '" height="' + j + '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'), m.addClass("owl-video-playing"), this._playing = m, o = f('<div style="height:' + j + "px; width:" + k + 'px" class="owl-video-frame">' + p + "</div>"), n.after(o)
+        "youtube" === l.type ? p = '<iframe width="' + k + '" height="' + j + '" src="http://www.youtube.com/embed/' + l.id + '" frameborder="0" allowfullscreen></iframe>' : "vimeo" === l.type && (p = '<iframe src="http://player.vimeo.com/video/' + l.id + '?autoplay=1" width="' + k + '" height="' + j + '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'), m.addClass("owl-video-playing"), this._playing = m, o = f('<div style="height:' + j + "px; width:" + k + 'px" class="owl-video-frame">' + p + "</div>"), n.after(o)
     }, g.prototype.isInFullScreen = function () {
         var a = h.fullscreenElement || h.mozFullScreenElement || h.webkitFullscreenElement;
         return a && f(a).parent().hasClass("owl-video-frame") && (this._core.speed(0), this._fullscreen = !0), a && this._fullscreen && this._playing ? !1 : this._fullscreen ? (this._fullscreen = !1, !1) : this._playing && this._core.state.orientation !== e.orientation ? (this._core.state.orientation = e.orientation, !1) : !0
@@ -11430,13 +11430,13 @@ ga("send", "pageview");
         defaults: {
             youtube: {
                 matcher: /(youtube\.com|youtu\.be|youtube-nocookie\.com)\/(watch\?v=|v\/|u\/|embed\/?)?(videoseries\?list=(.*)|[\w-]{11}|\?listType=(.*)&list=(.*)).*/i,
-                params: {autoplay: 1, autohide: 1, fs: 1, rel: 0, hd: 1, wmode: "opaque", enablejsapi: 1},
+                params: {autohide: 1, fs: 1, rel: 0, hd: 1, wmode: "opaque", enablejsapi: 1},
                 type: "iframe",
                 url: "//www.youtube.com/embed/$3"
             },
             vimeo: {
                 matcher: /(?:vimeo(?:pro)?.com)\/(?:[^\d]+)?(\d+)(?:.*)/,
-                params: {autoplay: 1, hd: 1, show_title: 1, show_byline: 1, show_portrait: 0, fullscreen: 1},
+                params: {hd: 1, show_title: 1, show_byline: 1, show_portrait: 0, fullscreen: 1},
                 type: "iframe",
                 url: "//player.vimeo.com/video/$1"
             },
